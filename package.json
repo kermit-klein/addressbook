@@ -1,0 +1,19 @@
+{
+  "name": "address_book_challenge",
+  "version": "1.0.0",
+  "description": "Simple Address Book",
+  "main": "app.js",
+  "author": "allezz",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "cypress": "^4.2.0"
+  },
+  "dependencies": {
+    "superstatic": "^6.0.4"
+  },
+  "scripts": {
+		"start": "superstatic src --host 192.168.0.3 --port 3001",
+		"cy:open": "yarn start & cypress open"
+	}
+}
