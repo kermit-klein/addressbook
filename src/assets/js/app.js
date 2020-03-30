@@ -2,26 +2,31 @@ const  storage = window.localStorage
 
 const  renderContacts = () => {
   const  contacts = JSON.parse(storage.getItem("contacts"))
-
-  let  div = document.querySelector("#contact-list")
+  
+  let  div = document.querySelector("#tbodylist")
   if (contacts) {
 	div.innerHTML = ''
 	const  ul = document.createElement("ul")
 
 	contacts.forEach(contact  => {
-		let  li = document.createElement("li")
+		let tr = document.createElement("tr")
 
-		li.innerHTML = `
-		  <span>${contact.name}</span> |
-		  <span>${contact.email}</span> |
-		  <span>${contact.phone}</span>
-	    `
-	    ul.appendChild(li)
+		tr.innerHTML = `
+		  <td>${contact.name}</td> 
+		  <td>${contact.email}</td> 
+		  <td>${contact.phone}</td> 
+		  <td>${contact.company}</td> 
+		  <td>${contact.twitter}</td> 
+		  <td>${contact.notes}</td> 
+		`
+		div.appendChild(tr)
+		document.querySelector("#thead").style.display ="";
 	  })
 			
-	  div.appendChild(ul)
+	  
 	} else {
-	  div.innerHTML = "<p>You have no contacts in your address book</p>"
+	  document.querySelector("#thead").style.display ="none";
+	  div.innerHTML = '<p class="norecord">You have no contacts in your address book</p>'
 	}
 }
 
