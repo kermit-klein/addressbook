@@ -4,7 +4,7 @@ const  renderContacts = () => {
   const  contacts = JSON.parse(storage.getItem("contacts"))
   
   let  div = document.querySelector("#tbodylist")
-  if (contacts) {
+  if (contacts && contacts[0]!=undefined) {  // ASK FOR conditional
 	div.innerHTML = ''
 	const  ul = document.createElement("ul")
 
@@ -17,7 +17,8 @@ const  renderContacts = () => {
 		  <td>${contact.phone}</td> 
 		  <td>${contact.company}</td> 
 		  <td>${contact.twitter}</td> 
-		  <td>${contact.notes}</td> 
+		  <td>${contact.notes}</td>
+		  <button id="${contact.uID}" class="mini ui red button" onClick="delete_record()">Delete</button> 
 		`
 		div.appendChild(tr)
 		document.querySelector("#thead").style.display ="";
@@ -72,3 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		contactForm.reset()
    })
 })
+
+var delete_record = () => {       // ASK for DOM
+	let contacts = JSON.parse(storage.getItem("contacts"))
+	for (i=0;i<=contacts.length-1;i++) {
+		if (event.srcElement.id==contacts[i].uID) {
+			contacts.splice(i,1)
+			storage.setItem('contacts', JSON.stringify(contacts))
+		    renderContacts()
+		}
+	}
+
+}
