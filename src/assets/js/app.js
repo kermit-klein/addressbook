@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			company:  company.value,
 			notes:  notes.value,
 			twitter:  twitter.value,
+			uID:Date.now()
 		}
 
 		console.log(contact)
