@@ -6,6 +6,6 @@ Address Book Challenge
 - JQuery library needed for Semantic UI  
 - Javascript DOM used
 - Cypress Testing  
-- Additional Delete functionality using Unique Identifier for entries  
+- Additional <b>Edit and Delete</b> functionality using Unique Identifier for entries  
 
 Accesable through : https://lucid-goldberg-376388.netlify.com/
