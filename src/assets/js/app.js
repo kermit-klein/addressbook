@@ -17,26 +17,28 @@ const renderContacts = () => {
 		  <button id="${contact.uID}" class="mini ui red button">Delete</button> 
 		`
             div.appendChild(tr)
-            document.querySelector("#thead").style.display = "";
+			document.querySelector("#thead").style.display = "";
+			
+			document.querySelectorAll("button").forEach(button => {
+				button.addEventListener("click", function() {
+					var contacts = JSON.parse(window.localStorage.getItem("contacts"))					
+						for (let i = 0; i <= contacts.length - 1; i++) {
+							if (this.id == contacts[i].uID) {
+								contacts.splice(i, 1)
+								storage.setItem('contacts', JSON.stringify(contacts))
+								renderContacts()
+							}
+						}
+				})
+			})
+
+
         })
     } else {
         document.querySelector("#thead").style.display = "none";
         div.innerHTML = '<p class="norecord">You have no contacts in your address book</p>'
     }
-    document.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", function() {
-            var contacts = JSON.parse(window.localStorage.getItem("contacts"))
-            if (contacts && contacts[0] != undefined) {
-                for (let i = 0; i <= contacts.length - 1; i++) {
-                    if (this.id == contacts[i].uID) {
-                        contacts.splice(i, 1)
-                        storage.setItem('contacts', JSON.stringify(contacts))
-                        renderContacts()
-                    }
-                }
-            }
-        })
-    })
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
