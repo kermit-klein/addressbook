@@ -16,9 +16,4 @@ describe("user can create a contact", () => {
     it("displays the phone number of the new contact", () => {
 		cy.get("#contact-list").should("contain", "707666999")
 	})
-
-
-
-
-
 })
