@@ -26,3 +26,7 @@ background: linear-gradient(to right, rgb(238, 186, 212), #3494E6) !important; /
 #new-contact-form {
     margin-left: 10px;
 }
+
+#edit-contact-form {
+    margin-left: 10px;
+}
