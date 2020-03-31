@@ -1,0 +1,26 @@
+describe("user can delete a contact", () => {
+    it("Create contact first", ()=>{
+        cy.visit("http://192.168.0.3:3001")
+        cy.get("#add-contact").click()
+        cy.get("#name").type("Ali")
+		cy.get("#email").type("test@test.com")
+		cy.get("#phone").type("0707666999")
+		cy.get("#company").type("Craft Academy")
+		cy.get("#notes").type("Beginner coder")
+        cy.get("#twitter").type("@notwitter")
+        cy.get('#submit').click()
+        cy.get("#name").type("Ali")
+		cy.get("#email").type("test@test.com")
+		cy.get("#phone").type("0707666999")
+		cy.get("#company").type("Craft Academy")
+		cy.get("#notes").type("Beginner coder")
+        cy.get("#twitter").type("@notwitter")
+        cy.get('#submit').click()
+        
+    })
+    it("must say no contact on list", () => {
+        cy.get('.mini').first().click()
+        cy.get('.mini').first().click()
+		cy.get('.norecord').should("contain", "no contacts")
+    })
+})

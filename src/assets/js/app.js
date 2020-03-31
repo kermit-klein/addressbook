@@ -1,5 +1,4 @@
 const  storage = window.localStorage
-
 const  renderContacts = () => {
   const  contacts = JSON.parse(storage.getItem("contacts"))
   
@@ -61,12 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			uID:Date.now()
 		}
 
-		console.log(contact)
-
 		let  contacts = JSON.parse(storage.getItem('contacts')) || []
 
 		contacts.push(contact)
-
+           
 		// 2. Save them to our storage
 		storage.setItem('contacts', JSON.stringify(contacts))
 		renderContacts()
@@ -75,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 var delete_record = () => {       // ASK for DOM
-	let contacts = JSON.parse(storage.getItem("contacts"))
+	let contacts = JSON.parse(window.localStorage.getItem("contacts"))
 	for (i=0;i<=contacts.length-1;i++) {
 		if (event.srcElement.id==contacts[i].uID) {
 			contacts.splice(i,1)

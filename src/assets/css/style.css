@@ -18,3 +18,11 @@ background: linear-gradient(to right, rgb(238, 186, 212), #3494E6) !important; /
 .norecord {
     text-align: center;
 }
+
+#add-contact {
+    margin-left: 10px;
+}
+
+#new-contact-form {
+    margin-left: 10px;
+}
