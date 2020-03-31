@@ -3,7 +3,7 @@ const  renderContacts = () => {
   const  contacts = JSON.parse(storage.getItem("contacts"))
   
   let  div = document.querySelector("#tbodylist")
-  if (contacts && contacts[0]!=undefined) {  // ASK FOR conditional
+  if (contacts && contacts.length>0) {  // ASK FOR conditional
 	div.innerHTML = ''
 	const  ul = document.createElement("ul")
 
