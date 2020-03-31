@@ -16,8 +16,8 @@ describe("user can delete a contact", () => {
 		cy.get("#notes").type("Beginner coder")
         cy.get("#twitter").type("@notwitter")
         cy.get('#submit').click()
-        cy.get('.mini').first().click()
-        cy.get('.mini').first().click()
+        cy.get('.delbut').first().click()
+        cy.get('.delbut').first().click()
         
     })
     it("must say no contact on list", () => {
