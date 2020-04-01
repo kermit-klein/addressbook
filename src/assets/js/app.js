@@ -17,64 +17,12 @@ const renderContacts = () => {
 		  <button id="${contact.uID}" class="mini ui red button delbut">Delete</button>
 		  <button id="${contact.uID}" class="mini ui yellow button editbut">Edit</button> 
 		`
-                div.appendChild(tr)
-                document.querySelector("#thead").style.display = "";
+            div.appendChild(tr)
+            document.querySelector("#thead").style.display = "";
 
-                document.querySelectorAll(".delbut").forEach(button => {
-                    button.addEventListener("click", function() {
-                        var contacts = JSON.parse(window.localStorage.getItem("contacts"))
-                        for (let i = 0; i <= contacts.length - 1; i++) {
-                            if (this.id == contacts[i].uID) {
-                                contacts.splice(i, 1)
-                                storage.setItem('contacts', JSON.stringify(contacts))
-                                renderContacts()
-                            }
-                        }
-                    })
-                })
+    deletefunc()  // Defined below
+    editfunc()    // Defined below
 
-                document.querySelectorAll(".editbut").forEach(button => {
-                        button.addEventListener("click", function() {
-                                var contacts = JSON.parse(window.localStorage.getItem("contacts"))
-                                let editdiv = document.querySelector("#editform")
-
-                                for (let i = 0; i <= contacts.length - 1; i++) {
-                                    if (this.id == contacts[i].uID) {
-                                        var contactedit = contacts[i]
-                                        editdiv.innerHTML = `<form id="edit-contact-form"><div class="ui form"><div class="fields"><div class="field"><label for="name">Name</label><input id="editname" type="text" name="name" value="${contactedit.name}"></div><div class="field"><label for="email">E-mail</label><input id="editemail" type="email" name="email" value="${contactedit.email}"></div><div class="field"><label for="phone">Phone</label><input id="editphone" type="text" name="phone" value="${contactedit.phone}"></div><div class="field"><label for="company">Company</label><input id="editcompany" type="text" name="company" value="${contactedit.company}"></div><div class="field"><label for="twitter">Twitter</label><input id="edittwitter" type="text" name="twitter" value="${contactedit.twitter}"></div><div class="field"><label>Notes</label><input type="text" id="editnotes" name="notes" value="${contactedit.notes}"></div><button id="${contactedit.uID}" type="submit" value="Save contact" class="ui yellow button saveedit"><i class="icon user"></i>Save Edit</button></div></div></form>`
-
-                                        var editcontactForm = document.getElementById('edit-contact-form')
-                                        editcontactForm.addEventListener("submit", event => {
-                                            event.preventDefault()
-
-                                            var {
-                                                name,
-                                                email,
-                                                phone,
-                                                company,
-                                                notes,
-                                                twitter
-                                            } = editcontactForm.elements
-
-                                            contacts[i].name = name.value
-                                            contacts[i].email = email.value
-                                            contacts[i].phone = phone.value
-                                            contacts[i].company = company.value
-                                            contacts[i].notes = notes.value
-                                            contacts[i].twitter = twitter.value
-
-                                            storage.setItem('contacts', JSON.stringify(contacts))
-											renderContacts()
-											editcontactForm.reset()
-											editcontactForm.style.display = 'none'
-                                        })
-                                    }
-                                }
-						})
-						
-
-
-                })
         })
 } else {
     document.querySelector("#thead").style.display = "none";
@@ -127,3 +75,64 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.reset()
     })
 })
+
+
+var editfunc = () => {
+	document.querySelectorAll(".editbut").forEach(button => {
+		button.addEventListener("click", function() {
+				var contacts = JSON.parse(window.localStorage.getItem("contacts"))
+				let editdiv = document.querySelector("#editform")
+
+				for (let i = 0; i <= contacts.length - 1; i++) {
+					if (this.id == contacts[i].uID) {
+						var contactedit = contacts[i]
+						editdiv.innerHTML = `<form id="edit-contact-form"><div class="ui form"><div class="fields"><div class="field"><label for="name">Name</label><input id="editname" type="text" name="name" value="${contactedit.name}"></div><div class="field"><label for="email">E-mail</label><input id="editemail" type="email" name="email" value="${contactedit.email}"></div><div class="field"><label for="phone">Phone</label><input id="editphone" type="text" name="phone" value="${contactedit.phone}"></div><div class="field"><label for="company">Company</label><input id="editcompany" type="text" name="company" value="${contactedit.company}"></div><div class="field"><label for="twitter">Twitter</label><input id="edittwitter" type="text" name="twitter" value="${contactedit.twitter}"></div><div class="field"><label>Notes</label><input type="text" id="editnotes" name="notes" value="${contactedit.notes}"></div><button id="${contactedit.uID}" type="submit" value="Save contact" class="ui yellow button saveedit"><i class="icon user"></i>Save Edit</button></div></div></form>`
+
+						var editcontactForm = document.getElementById('edit-contact-form')
+						editcontactForm.addEventListener("submit", event => {
+							event.preventDefault()
+
+							var {
+								name,
+								email,
+								phone,
+								company,
+								notes,
+								twitter
+							} = editcontactForm.elements
+
+							contacts[i].name = name.value
+							contacts[i].email = email.value
+							contacts[i].phone = phone.value
+							contacts[i].company = company.value
+							contacts[i].notes = notes.value
+							contacts[i].twitter = twitter.value
+
+							storage.setItem('contacts', JSON.stringify(contacts))
+							renderContacts()
+							editcontactForm.reset()
+							editcontactForm.style.display = 'none'
+						})
+					}
+				}
+		})
+		
+
+
+})
+}
+var deletefunc = () => {
+	document.querySelectorAll(".delbut").forEach(button => {
+		button.addEventListener("click", function() {
+			var contacts = JSON.parse(window.localStorage.getItem("contacts"))
+			for (let i = 0; i <= contacts.length - 1; i++) {
+				if (this.id == contacts[i].uID) {
+					contacts.splice(i, 1)
+					storage.setItem('contacts', JSON.stringify(contacts))
+					renderContacts()
+				}
+			}
+		})
+	})
+
+}
