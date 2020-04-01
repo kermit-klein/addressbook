@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
             twitter
         } = contactForm.elements
         const contact = {
-            name: name.value,
-            email: email.value,
-            phone: phone.value,
-            company: company.value,
-            notes: notes.value,
-            twitter: twitter.value,
+            name: jQuery('<p>'+name.value+'</p>').text(),
+            email: jQuery('<p>'+email.value+'</p>').text(),
+            phone: jQuery('<p>'+phone.value+'</p>').text(),
+            company: jQuery('<p>'+company.value+'</p>').text(),
+            notes: jQuery('<p>'+notes.value+'</p>').text(),
+            twitter: jQuery('<p>'+twitter.value+'</p>').text(),
             uID: Date.now()
         }
 
