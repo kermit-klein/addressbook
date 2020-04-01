@@ -1,78 +1,77 @@
-<!DOCTYPE  html>
-<html  lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<meta  charset="UTF-8">
-	<meta  name="viewport"  content="width=device-width, initial-scale=1.0">
-	<meta  http-equiv="X-UA-Compatible"  content="ie=edge">
-	<title>Able Address book</title>
-	<link rel="stylesheet" href="./assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/bc5e44e555.js" crossorigin="anonymous"></script>
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Able Address book</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bc5e44e555.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-	<h1 class="shadow"><i class="far fa-address-book"></i> The Book of Contacts</h1>
-    <button  id="add-contact" class="ui grey button">Add Contact</button>
-    
-	<form id="new-contact-form">
-	<div class="ui form">
-		<div class="fields">
-		  <div class="field">
-			<label for="name">Name</label>
-			<input id="name" type="text" name="name" placeholder="Name">
-		  </div>
-		  <div class="field">
-			<label for="email">E-mail</label>
-			<input id="email" type="email" name="email" placeholder="E-mail">
-		  </div>
-		  <div class="field">
-			<label for="phone">Phone</label>
-			<input id="phone" type="text" name="phone" placeholder="Phone">
-		  </div>
-		  <div class="field">
-			<label for="company">Company</label>
-			<input id="company" type="text" name="company" placeholder="Company">
-		  </div>
-		  <div class="field">
-			<label for="twitter">Twitter</label>
-			<input id="twitter" type="text" name="twitter" placeholder="Twitter">
-		  </div>
-		  <div class="field">
-			<label>Notes</label>
-			<input type="text" id="notes" name="notes" placeholder="Notes">
-		  </div>
-		  <button id="submit" type="submit" value="Save contact" class="ui grey button">
-			<i class="icon user"></i>
-			Save Contact
-			</button>  
-		</div>
-	  </div>
-	</form>
-	<div id="editform"></div>
-     <div class="ui container">
-	<table id="contact-list" class="ui padded table">
-		<thead id="thead">
-		  <tr>
-			<th>Name</th>
-			<th>E-mail</th>
-			<th>Phone</th>
-			<th>Company</th>
-			<th>Twitter</th>
-			<th>Notes</th>
-		  </tr>
-		</thead>
-		<tbody id="tbodylist">
-		</tbody>
-	  </table>
-	</div>
-	<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
-  <script src="/assets/js/app.js"></script>
+    <h1 class="shadow"><i class="far fa-address-book"></i> The Book of Contacts</h1>
+    <button id="add-contact" class="ui grey button">Add Contact</button>
+
+    <form id="new-contact-form">
+        <div class="ui form">
+            <div class="fields">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" placeholder="Name">
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" placeholder="E-mail">
+                </div>
+                <div class="field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="text" name="phone" placeholder="Phone">
+                </div>
+                <div class="field">
+                    <label for="company">Company</label>
+                    <input id="company" type="text" name="company" placeholder="Company">
+                </div>
+                <div class="field">
+                    <label for="twitter">Twitter</label>
+                    <input id="twitter" type="text" name="twitter" placeholder="Twitter">
+                </div>
+                <div class="field">
+                    <label>Notes</label>
+                    <input type="text" id="notes" name="notes" placeholder="Notes">
+                </div>
+                <button id="submit" type="submit" value="Save contact" class="ui grey button">
+                    <i class="icon user"></i>
+                    Save Contact
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="editform"></div>
+    <div class="ui container">
+        <table id="contact-list" class="ui padded table">
+            <thead id="thead">
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Twitter</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="tbodylist">
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+    <script src="/assets/js/app.js"></script>
 
 </body>
-</html> 
+
+</html>
