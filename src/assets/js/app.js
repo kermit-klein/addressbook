@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', event => {
         event.preventDefault()
 
+
         // 1. Read all the input fields and get their values
         const {
             name,
@@ -58,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
             twitter
         } = contactForm.elements
         const contact = {
-            name: jQuery('<p>'+name.value+'</p>').text(),
-            email: jQuery('<p>'+email.value+'</p>').text(),
-            phone: jQuery('<p>'+phone.value+'</p>').text(),
-            company: jQuery('<p>'+company.value+'</p>').text(),
-            notes: jQuery('<p>'+notes.value+'</p>').text(),
-            twitter: jQuery('<p>'+twitter.value+'</p>').text(),
+            name:strip(name.value),
+            email:strip(email.value),
+            phone:strip(phone.value),
+            company:strip(company.value),
+            notes:strip(notes.value),
+            twitter:strip(twitter.value),
             uID: Date.now()
         }
 
@@ -107,12 +108,12 @@ var editfunc = () => {
                             twitter
                         } = editcontactForm.elements
 
-                        contacts[i].name = name.value
-                        contacts[i].email = email.value
-                        contacts[i].phone = phone.value
-                        contacts[i].company = company.value
-                        contacts[i].notes = notes.value
-                        contacts[i].twitter = twitter.value
+                        contacts[i].name = strip(name.value)
+                        contacts[i].email = strip(email.value)
+                        contacts[i].phone = strip(phone.value)
+                        contacts[i].company = strip(company.value)
+                        contacts[i].notes = strip(notes.value)
+                        contacts[i].twitter = strip(twitter.value)
 
                         storage.setItem('contacts', JSON.stringify(contacts))
                         renderContacts()
@@ -142,3 +143,7 @@ var deletefunc = () => {
     })
 
 }
+function strip(html){
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || "";
+ }
