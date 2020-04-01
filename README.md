@@ -2,7 +2,7 @@
 Address Book Challenge
 
 - Simple Address Book App  
-- Basic HTML,Semantic UI and Google Fonts used  
+- Basic HTML,Semantic UI, Google Fonts and Fontawesome used  
 - JQuery library needed for Semantic UI  
 - Javascript DOM used
 - Cypress Testing  
